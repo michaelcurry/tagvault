@@ -1,0 +1,24 @@
+body {
+	background-color: #eee;
+}
+
+.container {
+	width: 1024px;
+}
+
+.image {
+	width: 200px;
+	height: auto;
+	padding: 10px;
+	background: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	float: left;
+}
+
+.image img {
+	border: 1px solid #000;
+	float:left;
+}
