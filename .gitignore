@@ -8,5 +8,5 @@ ehthumbs.db
 Thumbs.db
 
 # Others
-bin/
-logs/
+bin/*
+logs/*
