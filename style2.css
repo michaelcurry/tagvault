@@ -1,7 +1,7 @@
 body {
 	background-color: #000;
 }
-.slideshow {
+#slideshow {
 	position: absolute !important;
 	margin: auto !important;
 	text-align: center !important;
@@ -11,7 +11,7 @@ body {
 	left: 0 !important;
 	right: 0 !important;
 }
-.slideshow img {
+#slideshow img {
 	width: auto !important;
 	height: auto !important;
 	max-width: 100% !important;
