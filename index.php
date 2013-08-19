@@ -1,6 +1,8 @@
 <?php
   if ($_REQUEST && isset($_REQUEST['Body']) && isset($_REQUEST['MediaContentTypes']) && strpos($_REQUEST['MediaContentTypes'], 'image') !== false ){
-    file_put_contents('bin/'.strtolower($_REQUEST['Body']).'.csv', '{"img":"'.$_REQUEST['MediaUrls'].'","place":"'.$_REQUEST['FromCity'].', '.$_REQUEST['FromState'].'","time":"'.date('F jS Y h:i:s A').'"}|', FILE_APPEND);
+    $file = 'img/'.sha1(md5($_REQUEST['MediaUrls'])).'.jpg';
+    file_put_contents($file, file_get_contents($_REQUEST['MediaUrls']));
+    file_put_contents('bin/'.strtolower($_REQUEST['Body']).'.csv', '{"img":"'.$file.'","place":"'.$_REQUEST['FromCity'].', '.$_REQUEST['FromState'].'","time":"'.date('F jS Y h:i:s A').'"}|', FILE_APPEND);
   }elseif ($_REQUEST && isset($_REQUEST['event']) && file_exists('bin/'.$_REQUEST['event'].'.csv')) { ?>
 <html>
   <head>

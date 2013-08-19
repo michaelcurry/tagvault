@@ -9,4 +9,5 @@ Thumbs.db
 
 # Others
 bin/*.csv
+img/*.jpg
 logs

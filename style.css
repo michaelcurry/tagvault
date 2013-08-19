@@ -15,7 +15,9 @@ body {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	margin: 5px;
-	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .image img {
