@@ -5,5 +5,9 @@ body {
 	height: 100% !important;
 	width: 100% !important;
 	margin: auto !important;
+	text-align: center !important;
 }
-.slideshow img {  }
+.slideshow img {
+	width: auto !important;
+	height: auto !important;
+}
