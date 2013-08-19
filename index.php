@@ -1,6 +1,6 @@
 <?php
   if ($_REQUEST && isset($_REQUEST['Body']) && isset($_REQUEST['MediaContentTypes']) && strpos($_REQUEST['MediaContentTypes'], 'image') !== false ){
-    file_put_contents($_REQUEST['Body'].'.csv', $_REQUEST['MediaUrls'].',', FILE_APPEND);
+    file_put_contents(strtolower($_REQUEST['Body']).'.csv', $_REQUEST['MediaUrls'].',', FILE_APPEND);
   }elseif ($_REQUEST && isset($_REQUEST['event']) && file_exists($_REQUEST['event'].'.csv')) { ?>
 <html>
   <head>
@@ -16,7 +16,7 @@
         <div class="span12">
         <h1>Event: <i><?php echo $_REQUEST['event']; ?></i></h1>
         <div id="container" class="js-masonry">
-          <?php $images = str_getcsv(file_get_contents($_REQUEST['event'].'.csv'));?>
+          <?php $images = str_getcsv(file_get_contents(strtolower($_REQUEST['event']).'.csv'));?>
           <?php foreach ($images as $image) : ?>
             <?php if ($image) : ?>
               <div class="image">
