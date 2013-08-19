@@ -35,3 +35,38 @@ body {
 	font-style: italic;
 	margin: 0;
 }
+
+#lightbox{
+	background-color:#eee;
+	padding: 0;
+	border: 10px solid #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	max-width: 90%;
+	max-height: 90%;
+	height: auto;
+	margin: auto !important;
+  	position: absolute !important;
+  	top: 0 !important; left: 0 !important; bottom: 0 !important; right: 0 !important;
+  	overflow: hidden;
+	}
+#lightboxDetails{
+	font-size: 0.8em;
+	padding-top: 0.4em;
+	}
+#lightboxCaption{ float: left; }
+#keyboardMsg{ float: right; }
+#closeButton{ top: 5px; right: 5px; }
+
+#lightbox img{ border: none; clear: both;}
+#overlay img{ border: none; }
+
+#overlay{ background-image: url(overlay.png); }
+
+* html #overlay{
+	background-color: #333;
+	back\ground-color: transparent;
+	background-image: url(blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="overlay.png", sizingMethod="scale");
+	}

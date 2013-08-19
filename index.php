@@ -9,6 +9,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="./masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="lightbox.js"></script>
   </head>
   <body>
     <div class="container" >
@@ -21,7 +22,9 @@
             <?php if ($message) : ?>
               <?php $m = json_decode($message); ?>
               <div class="image">
-                <img src="<?php echo $m->img ?>"/>
+                <a href="<?php echo $m->img ?>" rel="lightbox" title="<?php echo $m->time?>" >
+                  <img src="<?php echo $m->img ?>" />
+                </a>
                 <p class="place"><?php echo $m->place?></p>
                 <p class="time"><?php echo $m->time?></p>
               </div>
