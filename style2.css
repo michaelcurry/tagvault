@@ -1,5 +1,9 @@
 body {
 	background-color: #000;
 }
-.slideshow { height: 100%; width: 100%; margin: auto; text-align: center; }
+.slideshow {
+	height: 100% !important;
+	width: 100% !important;
+	margin: auto !important;
+}
 .slideshow img {  }
