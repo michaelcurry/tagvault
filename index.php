@@ -1,7 +1,7 @@
 <?php
   if ($_REQUEST && isset($_REQUEST['Body']) && isset($_REQUEST['MediaContentTypes']) && strpos($_REQUEST['MediaContentTypes'], 'image') !== false ){
-    file_put_contents('bin/'.strtolower($_REQUEST['Body']).'.csv', $_REQUEST['MediaUrls'].',', FILE_APPEND);
-  }elseif ($_REQUEST && isset($_REQUEST['event']) && file_exists($_REQUEST['event'].'.csv')) { ?>
+    file_put_contents('bin/'.strtolower($_REQUEST['Body']).'.csv', '{"img":"'.$_REQUEST['MediaUrls'].'","place":"'.$_REQUEST['FromCity'].', '.$_REQUEST['FromState'].'","time":"'.date('F jS Y h:i:s A').'"}|', FILE_APPEND);
+  }elseif ($_REQUEST && isset($_REQUEST['event']) && file_exists('bin/'.$_REQUEST['event'].'.csv')) { ?>
 <html>
   <head>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -16,11 +16,14 @@
         <div class="span12">
         <h1>Event: <i><?php echo $_REQUEST['event']; ?></i></h1>
         <div id="container" class="js-masonry">
-          <?php $images = str_getcsv(file_get_contents('bin/'.strtolower($_REQUEST['event']).'.csv'));?>
-          <?php foreach ($images as $image) : ?>
-            <?php if ($image) : ?>
+          <?php $mms = str_getcsv(file_get_contents('bin/'.strtolower($_REQUEST['event']).'.csv'),'|');?>
+          <?php foreach ($mms as $message) : ?>
+            <?php if ($message) : ?>
+              <?php $m = json_decode($message); ?>
               <div class="image">
-                <img src="<?php echo $image ?>"/>
+                <img src="<?php echo $m->img ?>"/>
+                <p class="place"><?php echo $m->place?></p>
+                <p class="time"><?php echo $m->time?></p>
               </div>
             <?php endif; ?>
           <?php endforeach; ?>
