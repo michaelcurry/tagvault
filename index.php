@@ -21,8 +21,7 @@
           <?php foreach (array_reverse($mms) as $message) : ?>
             <?php if ($message) : ?>
               <?php $m = json_decode($message); ?>
-                  <img src="<?php echo $m->img ?>" />
-              </div>
+              <img src="<?php echo $m->img ?>" />
             <?php endif; ?>
           <?php endforeach; ?>
         </div>
