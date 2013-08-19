@@ -18,7 +18,7 @@
         <h1>Event: <i><?php echo $_REQUEST['event']; ?></i></h1>
         <div id="container" class="js-masonry">
           <?php $mms = str_getcsv(file_get_contents('bin/'.strtolower($_REQUEST['event']).'.csv'),'|');?>
-          <?php foreach ($mms as $message) : ?>
+          <?php foreach (array_reverse($mms) as $message) : ?>
             <?php if ($message) : ?>
               <?php $m = json_decode($message); ?>
               <div class="image">
@@ -44,7 +44,7 @@
             //columnWidth: 200,
             itemSelector: '.image'
           });
-        }, 1000)
+        }, 500)
       });
     </script>
   </body>
