@@ -1,8 +1,10 @@
 <?php
   if ($_REQUEST && isset($_REQUEST['Body']) && isset($_REQUEST['MediaContentTypes']) && strpos($_REQUEST['MediaContentTypes'], 'image') !== false ){
-    $file = 'img/'.sha1(md5($_REQUEST['MediaUrls'])).'.jpg';
-    file_put_contents($file, file_get_contents($_REQUEST['MediaUrls']));
-    file_put_contents('bin/'.strtolower($_REQUEST['Body']).'.csv', '{"img":"'.$file.'","place":"'.$_REQUEST['FromCity'].', '.$_REQUEST['FromState'].'","time":"'.date('F jS Y h:i:s A').'"}|', FILE_APPEND);
+    foreach($_REQUEST['MediaUrls'] as $image) {
+      $file = 'img/'.sha1(md5($image)).'.jpg';
+      file_put_contents($file, file_get_contents($image));
+      file_put_contents('bin/'.strtolower($_REQUEST['Body']).'.csv', '{"img":"'.$file.'","place":"'.$_REQUEST['FromCity'].', '.$_REQUEST['FromState'].'","time":"'.date('F jS Y h:i:s A').'"}|', FILE_APPEND);
+    }
   }elseif ($_REQUEST && isset($_REQUEST['tag']) && isset($_REQUEST['slide']) && file_exists('bin/'.$_REQUEST['tag'].'.csv')) { ?>
 <html>
   <head>
