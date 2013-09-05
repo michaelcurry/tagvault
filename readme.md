@@ -5,13 +5,13 @@ Michael Ian Curry [@kernelcurry]
 
 This simple image BBS allows users to post by sending images over MMS to a Twilio number.  Once an image is sent, it will be categorized using the message body as a {tag}.  These tagged images can be displayed as a collage or a slide show on a projector for an event.
 
-## Languages:
+####Languages:
 - php
 - js
 - css
 - html
 
-Technology:
+####Technology:
 - [jQuery]
 - [masonry.js]
 - [lightbox.js]
