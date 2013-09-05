@@ -22,7 +22,7 @@
 
 <html>
 	<head>
-		<link href="./style2.css" rel="stylesheet">
+		<link href="./inc/style2.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="cycle.js"></script>
 	</head>
@@ -56,10 +56,10 @@
 <html>
 	<head>
 		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-		<link href="./style.css" rel="stylesheet">
+		<link href="./inc/style.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-		<script src="./masonry.pkgd.min.js"></script>
+		<script src="./inc/masonry.pkgd.min.js"></script>
 		<script type="text/javascript" src="lightbox.js"></script>
 	</head>
 	<body>
