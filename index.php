@@ -89,10 +89,8 @@
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function(){
 				var $container = $('#container');
-				// initialize
 				setTimeout(function() {
 					$container.masonry({
-						//columnWidth: 200,
 						itemSelector: '.image'
 					});
 				}, 500)
