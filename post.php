@@ -16,6 +16,7 @@
 
 			// Save Original File
 			file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
+			chmod ('img_original/'.$file, 777);
 
 			// Edit image
 			Image::open('img_original/'.$file)
