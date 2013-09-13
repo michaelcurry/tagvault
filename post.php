@@ -5,7 +5,7 @@
 
 	if ( isset($_POST['NumMedia']) && $_POST['NumMedia'] > 0 )
 	{
-		for ($i = 0; $i <= $_POST['NumMedia']; $i++)
+		for ($i = 0; $i < $_POST['NumMedia']; $i++)
 		{
 			echo $i;
 		}
@@ -19,7 +19,7 @@
 		header('HTTP/1.1 400 Bad Request', true, 400);
 
 		// return
-		return False
+		return False;
 	}
 
 	/*
