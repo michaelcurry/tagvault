@@ -3,8 +3,52 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c5c9f2785c3d2d1eafbdd43d2d52f662",
+    "hash": "9a14118032dad18490ac4a21c7c3fe9b",
     "packages": [
+        {
+            "name": "gregwar/image",
+            "version": "dev-adapter",
+            "target-dir": "Gregwar/Image",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/Image.git",
+                "reference": "a425f99f4b403a6bfc7445bb4ee54e8639176678"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gregwar/Image/zipball/a425f99f4b403a6bfc7445bb4ee54e8639176678",
+                "reference": "a425f99f4b403a6bfc7445bb4ee54e8639176678",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gregwar\\Image": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com/"
+                }
+            ],
+            "description": "Image handling",
+            "homepage": "https://github.com/Gregwar/Image",
+            "keywords": [
+                "gd",
+                "image"
+            ],
+            "time": "2013-09-11 20:34:43"
+        },
         {
             "name": "predis/predis",
             "version": "0.8.x-dev",
@@ -61,7 +105,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "predis/predis": 20
+        "predis/predis": 20,
+        "gregwar/image": 20
     },
     "platform": [
 

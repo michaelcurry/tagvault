@@ -1,13 +1,23 @@
 <?php
+
+	use Gregwar\Image\Image
+
 	/**
 	 * this file handles Twilio MMS posts
 	 */
 
 	if ( isset($_POST['NumMedia']) && $_POST['NumMedia'] > 0 )
 	{
+		// Image logic
 		for ($i = 0; $i < $_POST['NumMedia']; $i++)
 		{
-			echo $i;
+			Image::open($_POST['MediaUrl'.$i])
+				->resize(100, 100)
+				->negate()
+				->save(sha1($_POST['MediaUrl'.$i]).'.jpg');
+
+			$redis = new Predis\Client();
+			//$redis->rpush(strtolower(trim($_POST['body']))'{}');
 		}
 
 		// return

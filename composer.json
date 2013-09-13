@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "predis/predis": "0.8.*@dev"
+        "predis/predis": "0.8.*@dev",
+        "gregwar/image": "dev-adapter"
     }
 }
