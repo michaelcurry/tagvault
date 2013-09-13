@@ -3,7 +3,7 @@
 	 * this file handles Twilio MMS posts
 	 */
 
-	if ( isset($_POST['NumMedia']) )
+	if ( isset($_POST['NumMedia']) && $_POST['NumMedia'] > 0 )
 	{
 
 		return TRUE;
