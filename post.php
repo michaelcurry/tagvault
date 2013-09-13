@@ -11,7 +11,7 @@
 		// Image logic
 		for ($i = 0; $i < $_POST['NumMedia']; $i++)
 		{
-			Image::open($_POST['MediaUrl'.$i])
+			Image::fromData(file_get_contents($_POST['MediaUrl'.$i]))
 				->resize(100, 100)
 				->negate()
 				->save(sha1($_POST['MediaUrl'.$i]).'.jpg');
