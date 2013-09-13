@@ -11,3 +11,6 @@ Thumbs.db
 bin/*.csv
 img/*.jpg
 logs
+
+# Composer
+/vendor/
