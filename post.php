@@ -5,13 +5,21 @@
 
 	if ( isset($_POST['NumMedia']) && $_POST['NumMedia'] > 0 )
 	{
+		for ($i = 0; $i <= $_POST['NumMedia']; $i++)
+		{
+			echo $i;
+		}
 
+		// return
 		return TRUE;
 	}
 	else
 	{
-		http_response_code('400');
-		return False;
+		// Respond with 400
+		header('HTTP/1.1 400 Bad Request', true, 400);
+
+		// return
+		return False
 	}
 
 	/*
