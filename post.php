@@ -16,7 +16,7 @@
 
 			// Save Original File
 			// file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
-			file_put_contents('img_original/'.$file, file_get_contents('http://lorempixel.com/'.rad(100,10000).'/'.rad(100,10000).'/'));
+			file_put_contents('img_original/'.$file, file_get_contents('http://lorempixel.com/'.rand(100,10000).'/'.rand(100,10000).'/'));
 			chmod ('img_original/'.$file, 01777);
 
 			// Edit image
@@ -27,7 +27,7 @@
 
 			// Log in redis
 			$redis = new Predis\Client();
-			$redis->rpush(strtolower(trim($_POST['body']))'{"file":"'.$file.'","from":"'.$_POST['From'].'","Country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
+			$redis->rpush(strtolower(trim($_POST['body'])),'{"file":"'.$file.'","from":"'.$_POST['From'].'","Country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
 		}
 
 		// return
