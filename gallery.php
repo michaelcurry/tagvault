@@ -16,7 +16,14 @@
 					<div id="mason" class="js-masonry">
 					<?php $redis = new Predis\Client(); ?>
 					<?php foreach($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1)  as $entry) : ?>
-						<?php var_dump($entry); ?>
+						<?php $entry = json_decode($entry); ?>
+						<div class="image">
+							<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
+								<img src="/img_processed/<?php echo $entry->file ?>" />
+							</a>
+							<p class="place"><?php echo $entry->country?></p>
+							<p class="time"><?php echo $entry->datetime?></p>
+						</div>
 					<?php endforeach; ?>
 					</div>
 				</div>
