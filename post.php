@@ -33,7 +33,7 @@
 
 			// Log in redis
 			$redis = new Predis\Client();
-			$redis->rpush(strtolower(trim($_POST['body'])),'{"file":"'.$file.'","from":"'.$_POST['From'].'","Country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
+			$redis->rpush(strtolower(trim($_POST['Body'])),'{"file":"'.$file.'","from":"'.$_POST['From'].'","Country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
 		}
 
 		// return
