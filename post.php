@@ -16,16 +16,18 @@
 
 			// Save Original File
 			// file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
-			file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/1000x200'));
+			file_put_contents('img_original/'.$file, file_get_contents('http://lorempixel.com/'.rad(100,10000).'/'.rad(100,10000).'/'));
 			chmod ('img_original/'.$file, 01777);
 
 			// Edit image
 			Image::open('img_original/'.$file)
 				->cropResize(600, 600)
 				->save('img_processed/'.$file);
+			chmod ('img_processed/'.$file, 01777);
 
+			// Log in redis
 			$redis = new Predis\Client();
-			//$redis->rpush(strtolower(trim($_POST['body']))'{"file":"'.$file.'",datetime":"'.date('F jS Y h:i:s A').'"}');
+			$redis->rpush(strtolower(trim($_POST['body']))'{"file":"'.$file.'","from":"'.$_POST['From'].'","Country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
 		}
 
 		// return
