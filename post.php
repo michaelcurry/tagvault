@@ -17,13 +17,19 @@
 			// Save Original File
 			// file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
 			file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/'.rand(100,10000).'x'.rand(100,10000)));
-			chmod ('img_original/'.$file, 01777);
+			chmod ('img_original/'.$file, $config['chmod']);
 
 			// Edit image
 			Image::open('img_original/'.$file)
-				->cropResize(600, 600)
+				->cropResize($config['width'], $config['height'])
 				->save('img_processed/'.$file);
-			chmod ('img_processed/'.$file, 01777);
+			chmod ('img_processed/'.$file, $config['chmod']);
+
+			// Remove Original Image
+			if ($config['removeOriginal'] == True)
+			{
+				unlink('img_original/'.$file);
+			}
 
 			// Log in redis
 			$redis = new Predis\Client();

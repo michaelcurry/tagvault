@@ -3,14 +3,24 @@
 	 * Routing file
 	 */
 
+	// Include config
+	include_once('config.php');
+
+	// Check for composer installed
 	if (file_exists('vendor/autoload.php'))
 	{
 		include_once('vendor/autoload.php');
 	}
 	else
 	{
-		echo "Composer Install";
-		die();
+		// Display error
+		echo '{"error":"Composer Install"}';
+
+		// Respond with 500
+		header('HTTP/1.1 500 Internal Server Error', true, 500);
+
+		// return
+		return False;
 	}
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') // If request is a POST
