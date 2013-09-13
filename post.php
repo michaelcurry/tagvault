@@ -1,6 +1,6 @@
 <?php
 
-	use Gregwar\Image\Image
+	use Gregwar\Image\Image;
 
 	/**
 	 * this file handles Twilio MMS posts
