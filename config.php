@@ -8,4 +8,4 @@ $config['width'] = 800;
 
 $config['height'] = 800;
 
-$config['removeOriginal'] == True;
+$config['removeOriginal'] = True;
