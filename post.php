@@ -16,7 +16,7 @@
 
 			// Save Original File
 			// file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
-			file_put_contents('img_original/'.$file, file_get_contents('http://lorempixel.com/'.rand(100,10000).'/'.rand(100,10000).'/'));
+			file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/'.rand(100,10000).'x'.rand(100,10000)));
 			chmod ('img_original/'.$file, 01777);
 
 			// Edit image
