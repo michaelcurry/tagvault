@@ -19,7 +19,7 @@
 						<?php $entry = json_decode($entry); ?>
 						<div class="image">
 							<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
-								<img src="/img_processed/<?php echo $entry->file ?>" />
+								<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
 							</a>
 							<p class="place"><?php echo $entry->country?></p>
 							<p class="time"><?php echo $entry->datetime?></p>
