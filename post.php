@@ -16,17 +16,16 @@
 
 			// Save Original File
 			// file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
-			file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/2000x2000');
+			file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/2000x200'));
 			chmod ('img_original/'.$file, 01777);
 
 			// Edit image
 			Image::open('img_original/'.$file)
-				->resize(100, 100)
-				->negate()
+				->resize(600, 600)
 				->save('img_processed/'.$file);
 
 			$redis = new Predis\Client();
-			//$redis->rpush(strtolower(trim($_POST['body']))'{}');
+			//$redis->rpush(strtolower(trim($_POST['body']))'{"file":"'.$file.'",datetime":"'.date('F jS Y h:i:s A').'"}');
 		}
 
 		// return
