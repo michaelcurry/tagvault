@@ -3,6 +3,16 @@
 	 * Routing file
 	 */
 
+	if (file_exists('vendor/autoload.php'))
+	{
+		include_once('vendor/autoload.php');
+	}
+	else
+	{
+		echo "Composer Install";
+		die();
+	}
+
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') // If request is a POST
 	{
 		include_once('post.php');
