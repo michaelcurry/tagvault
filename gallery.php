@@ -15,7 +15,7 @@
 					<h1>Tag: <i><?php echo $_GET['tag']; ?></i></h1>
 					<div id="mason" class="js-masonry">
 					<?php $redis = new Predis\Client(); ?>
-					<?php foreach($redis->lrange(strtolower(trim($_GET['tag'])))  as $entry) : ?>
+					<?php foreach($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1)  as $entry) : ?>
 						<?php var_dump($entry); ?>
 					<?php endforeach; ?>
 					</div>
