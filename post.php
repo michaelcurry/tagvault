@@ -11,10 +11,17 @@
 		// Image logic
 		for ($i = 0; $i < $_POST['NumMedia']; $i++)
 		{
-			Image::fromData(file_get_contents($_POST['MediaUrl'.$i]))
+			// Set file name
+			$file = sha1($_POST['MediaUrl'.$i]).'.jpg';
+
+			// Save Original File
+			file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
+
+			// Edit image
+			Image::open('img_original/'.$file)
 				->resize(100, 100)
 				->negate()
-				->save(sha1($_POST['MediaUrl'.$i]).'.jpg');
+				->save('img_processed/'.$file);
 
 			$redis = new Predis\Client();
 			//$redis->rpush(strtolower(trim($_POST['body']))'{}');
