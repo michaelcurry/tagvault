@@ -19,6 +19,19 @@
 		<div class="container text-center">
 			<img class="logo img-responsive" src="./inc/img/logo.png" />
 			<p class="intro" >Text <span><?php echo $config['number'] ?></span> a picture with the name of a tag.  Your image will be displayed on that tag.</p>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<form action="/" method="GET">
+						<div class="input-group">
+							<input type="text" class="form-control" name="tag" placeholder="Tag Name">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit">Go</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+			<img class="sponsor img-responsive" src="./inc/img/twilio.png" />
 		</div>
 	</body>
 </html>
