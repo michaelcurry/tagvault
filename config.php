@@ -2,6 +2,8 @@
 
 $config = array();
 
+$config['number'] = '#####';
+
 $config['chmod'] = 01777;
 
 $config['width'] = 1000;
