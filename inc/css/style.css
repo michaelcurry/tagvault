@@ -1,9 +1,18 @@
+@import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic);
+
 body {
-	background-color: #eee;
+	background-image: url(../img/bg.png);
+	font-family: 'Istok Web', sans-serif !important;
 }
 
-.container {
-	width: 1024px;
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Istok Web', sans-serif !important;
+}
+
+.logo {
+	margin: 0 auto;
+	margin-top: 80px;
+	margin-bottom: 30px;
 }
 
 .image {
