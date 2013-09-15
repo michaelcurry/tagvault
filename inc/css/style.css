@@ -5,14 +5,36 @@ body {
 	font-family: 'Istok Web', sans-serif !important;
 }
 
+a,
+a:hover,
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Istok Web', sans-serif !important;
 }
 
+.credits {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
 .logo {
 	margin: 0 auto;
-	margin-top: 80px;
-	margin-bottom: 30px;
+	margin-top: 120px;
+	margin-bottom: 60px;
+}
+
+.intro {
+	font-size: 20px;
+}
+
+.intro span {
+	font-weight: 700;
+	font-size: 24px;
 }
 
 .image {
