@@ -15,8 +15,8 @@
 			$file = sha1($_POST['MediaUrl'.$i]).'.jpg';
 
 			// Save Original File
-			// file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
-			file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/'.rand(1000,6000).'x'.rand(1000,6000)));
+			file_put_contents('img_original/'.$file, file_get_contents($_POST['MediaUrl'.$i]));
+			// file_put_contents('img_original/'.$file, file_get_contents('http://placehold.it/'.rand(1000,6000).'x'.rand(1000,6000)));
 			chmod ('img_original/'.$file, $config['chmod']);
 
 			// Edit image
