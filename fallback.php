@@ -1,6 +1,8 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TagVault</title>
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 		<link href="./inc/css/style.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -9,7 +11,6 @@
 	</head>
 	<body>
 		<div class="credits">
-
 			<a href="https://twitter.com/intent/tweet?screen_name=KernelCurry" class="twitter-mention-button">Tweet author @KernelCurry</a>
 			<br />
 			<a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out this cool MMS BBS @KernelCurry created!" data-hashtags="TagVault">Tweet</a>
