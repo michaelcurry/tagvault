@@ -74,12 +74,11 @@ h1,h2,h3,h4,h5,h6 {
 
 .image p.place {
 	float:left;
-	font-size: 16px;
-	display:none;
+	font-size: 12px;
 }
 
 .image p.time {
-	float:right;
+	float:left;
 	font-size: 12px;
 	font-style: italic;
 	margin: 0;
