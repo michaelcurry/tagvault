@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>TagVault - <?php echo $_GET['tag'] ?></title>
+		<title>TagVault - <?php echo strtolower(trim($_GET['tag'])) ?></title>
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 		<link href="./inc/css/style.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -64,7 +64,7 @@
 				}, 500)
 				var pusher = new Pusher('<?php echo $config['pusher.KEY'] ?>');
 				var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
-				channel.bind('<?php echo $config['pusher.event'] ?>', function(data) {
+				channel.bind('<?php echo strtolower(trim($_GET['tag'])) ?>', function(data) {
 					alert(data.message);
 				});
 			});

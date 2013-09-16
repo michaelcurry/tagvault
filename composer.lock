@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9a14118032dad18490ac4a21c7c3fe9b",
+    "hash": "011b1da7d77c067ef12c7f556152f3ca",
     "packages": [
         {
             "name": "gregwar/image",
@@ -95,6 +95,50 @@
                 "redis"
             ],
             "time": "2013-08-31 08:51:10"
+        },
+        {
+            "name": "pusher/pusher-php-server",
+            "version": "dev-composer",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pusher/pusher-php-server.git",
+                "reference": "474c38a45d20f619572861aa62d8aea6b3844497"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pusher/pusher-php-server/zipball/474c38a45d20f619572861aa62d8aea6b3844497",
+                "reference": "474c38a45d20f619572861aa62d8aea6b3844497",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Library for interacting with the Pusher REST API",
+            "homepage": "https://github.com/pusher/pusher-php-server",
+            "keywords": [
+                "events",
+                "php-pusher-server",
+                "publish",
+                "pusher",
+                "realtime",
+                "rest",
+                "trigger"
+            ],
+            "time": "2013-09-15 17:23:00"
         }
     ],
     "packages-dev": [
@@ -106,7 +150,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "predis/predis": 20,
-        "gregwar/image": 20
+        "gregwar/image": 20,
+        "pusher/pusher-php-server": 20
     },
     "platform": [
 
