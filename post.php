@@ -39,12 +39,13 @@
 
 			// Log in redis
 			$redis = new Predis\Client();
-			$redis->set($file,'{"file":"'.$file.'","from":"'.$_POST['From'].'","country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
+			$redis->set($file,'{"file":"'.$file.'","from":"'.$_POST['From'].'","country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y H:i:s e').'"}');
 			$redis->lpush(strtolower(trim($_POST['Body'])),$file);
+			$redis->lpush('TAGLIST',strtolower(trim($_POST['Body'])));
 
 			// Pusher
 			$pusher = new Pusher($config['pusher.KEY'], $config['pusher.SECRET'], $config['pusher.AppID']);
-			$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y h:i:s A')) );
+			$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y H:i:s e')) );
 
 		}
 
