@@ -39,10 +39,12 @@
 						<?php $entry = $redis->get($entry); ?>
 						<?php $entry = json_decode($entry); ?>
 						<div class="image one-edge-shadow">
-							<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
-								<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
-							</a>
-							<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
+							<div class="wrapper">
+								<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
+									<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
+								</a>
+								<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
+							</div>
 						</div>
 					<?php endforeach; ?>
 					</div>
