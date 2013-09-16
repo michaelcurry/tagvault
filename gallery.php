@@ -54,8 +54,8 @@
 		<script src="./inc/js/masonry.min.js"></script>
 		<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			$(document).ready(function() {
-				var $container = $('#container');
+			var $container = $('#container');
+			$container.imagesLoaded(function() {
 				$container.masonry({
 					itemSelector : '.image'
 				});
