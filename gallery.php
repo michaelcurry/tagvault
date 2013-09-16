@@ -59,14 +59,14 @@
 				$container.masonry({
 					itemSelector : '.image'
 				});
+			});
 
-				// pusher
-				var pusher = new Pusher('<?php echo $config['pusher.KEY'] ?>');
-				var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
-				channel.bind('<?php echo strtolower(trim($_GET['tag'])) ?>', function(data) {
-					var $element = $('<div class="image"><div class="wrapper one-edge-shadow"><a href="/img_processed/'+data.file+'" title="'+data.datetime+'" ><img class="img-responsive" src="/img_processed/'+data.file+'" /></a><p class="info">Country: '+data.country+' | '+data.datetime+'</p></div></div>');
-					$container.prepend($element).masonry('prepended', $element);
-				});
+			// pusher
+			var pusher = new Pusher('<?php echo $config['pusher.KEY'] ?>');
+			var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
+			channel.bind('<?php echo strtolower(trim($_GET['tag'])) ?>', function(data) {
+				var $element = $('<div class="image"><div class="wrapper one-edge-shadow"><a href="/img_processed/'+data.file+'" title="'+data.datetime+'" ><img class="img-responsive" src="/img_processed/'+data.file+'" /></a><p class="info">Country: '+data.country+' | '+data.datetime+'</p></div></div>');
+				$container.prepend($element).masonry('prepended', $element);
 			});
 		</script>
 	</body>
