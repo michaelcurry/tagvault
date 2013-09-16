@@ -31,6 +31,7 @@
 					</form>
 				</div>
 			</div>
+			<hr />
 			<div class="row ">
 				<div class="col-xs-12 text-center">
 					<div id="mason" class="js-masonry">
@@ -38,8 +39,8 @@
 					<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
 						<?php $entry = $redis->get($entry); ?>
 						<?php $entry = json_decode($entry); ?>
-						<div class="image one-edge-shadow">
-							<div class="wrapper">
+						<div class="image">
+							<div class="wrapper one-edge-shadow">
 								<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
 									<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
 								</a>
