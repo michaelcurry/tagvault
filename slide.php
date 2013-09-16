@@ -22,14 +22,6 @@
 					fx: 'fade'
 				});
 			});
-
-			// pusher
-			var pusher = new Pusher('<?php echo $config['pusher.KEY'] ?>');
-			var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
-			channel.bind('<?php echo strtolower(trim($_GET['tag'])) ?>', function(data) {
-				alert(data);
-				location.reload();
-			});
 		</script>
 	</body>
 </html>
