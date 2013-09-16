@@ -1,17 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<link href="./inc/style2.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TagVault - <?php echo $_GET['tag'] ?></title>
+		<link href="./inc/css/style2.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="cycle.js"></script>
+		<script src="./inc/js/cycle.js"></script>
 	</head>
 	<body>
 		<div id="slideshow" >
-			<?php $mms = str_getcsv(file_get_contents('bin/'.strtolower($_REQUEST['tag']).'.csv'),'|');?>
-			<?php foreach (array_reverse($mms) as $message) : ?>
-				<?php if ($message) : ?>
-					<?php $m = json_decode($message); ?>
-					<img src="<?php echo $m->img ?>" />
-				<?php endif; ?>
+			<?php $redis = new Predis\Client(); ?>
+			<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
+				<?php $entry = $redis->get($entry); ?>
+				<?php $entry = json_decode($entry); ?>
+				<img src="/img_processed/<?php echo $entry->file ?>" />
 			<?php endforeach; ?>
 		</div>
 		<script type="text/javascript" charset="utf-8">
