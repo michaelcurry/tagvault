@@ -8,9 +8,8 @@ ehthumbs.db
 Thumbs.db
 
 # Others
-bin/*.csv
-img/*.jpg
-logs
+img_original/*.jpg
+img_processed/*.jpg
 
 # Composer
 /vendor/
