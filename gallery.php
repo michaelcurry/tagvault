@@ -66,7 +66,7 @@
 				var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
 				channel.bind('<?php echo strtolower(trim($_GET['tag'])) ?>', function(data) {
 					var $elem = $('<div class="image"><div class="wrapper one-edge-shadow"><a href="/img_processed/'+data.file+'" title="'+data.datetime+'" ><img class="img-responsive" src="/img_processed/'+data.file+'" /></a><p class="info">Country: '+data.country+' | '+data.datetime+'</p></div></div>');
-					$('#mason').masonry( 'prepend', $elem );
+					$('#mason').masonry( 'prepended', $elem );
 				});
 			});
 		</script>
