@@ -11,6 +11,12 @@
 		// Image logic
 		for ($i = 0; $i < $_POST['NumMedia']; $i++)
 		{
+			// If media is not image
+			if (strripos($_POST['MediaContentType'.$i], 'image') === False)
+			{
+				continue;
+			}
+
 			// Set file name
 			$file = sha1($_POST['MediaUrl'.$i]).'.jpg';
 
