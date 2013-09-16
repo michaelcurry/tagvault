@@ -85,11 +85,6 @@ h1,h2,h3,h4,h5,h6 {
 
 @media (max-width: 768px) {
 	.image {
-		width: 100%;
-		margin: 5px auto;
-		position: relative;
-	}
-	.image .wrapper {
-		margin: 0;
+		width: 50%;
 	}
 }
