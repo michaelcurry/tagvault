@@ -42,8 +42,7 @@
 							<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
 								<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
 							</a>
-							<p class="place">Country: <?php echo $entry->country?></p>
-							<p class="time clearfix"><?php echo $entry->datetime?></p>
+							<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
 						</div>
 					<?php endforeach; ?>
 					</div>
