@@ -5,10 +5,6 @@
 		<title>TagVault - <?php echo strtolower(trim($_GET['tag'])) ?></title>
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 		<link href="./inc/css/style.css" rel="stylesheet">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-		<script src="./inc/js/masonry.pkgd.min.js"></script>
-		<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="credits">
@@ -33,40 +29,46 @@
 				</div>
 			</div>
 			<hr />
-			<div class="row ">
+			<div class="row">
 				<div class="col-xs-12 text-center">
-					<div id="mason" class="js-masonry">
-					<?php $redis = new Predis\Client(); ?>
-					<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
-						<?php $entry = $redis->get($entry); ?>
-						<?php $entry = json_decode($entry); ?>
-						<div class="image">
-							<div class="wrapper one-edge-shadow">
-								<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
-									<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
-								</a>
-								<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
+					<div id="container">
+						<div class="image"><div class="wrapper"><img class="img-responsive" src="http://placehold.it/623x834" />asd</div></div>
+						<div class="image"><div class="wrapper"><img class="img-responsive" src="http://placehold.it/323x274" />asd</div></div>
+						<div class="image"><div class="wrapper"><img class="img-responsive" src="http://placehold.it/723x634" />asd</div></div>
+						<?php $redis = new Predis\Client(); ?>
+						<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
+							<?php $entry = $redis->get($entry); ?>
+							<?php $entry = json_decode($entry); ?>
+							<div class="image">
+								<div class="wrapper one-edge-shadow">
+									<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
+										<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
+									</a>
+									<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
+								</div>
 							</div>
-						</div>
-					<?php endforeach; ?>
+						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="./inc/js/masonry.min.js"></script>
+		<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var $container = $('#container');
+				$container.masonry({
+					itemSelector : '.image'
+				});
 
-		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function(){
-				var $container = $('#mason');
-				setTimeout(function() {
-					$container.masonry({
-						itemSelector: '.image'
-					});
-				}, 500)
+				// pusher
 				var pusher = new Pusher('<?php echo $config['pusher.KEY'] ?>');
 				var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
 				channel.bind('<?php echo strtolower(trim($_GET['tag'])) ?>', function(data) {
-					var $elem = $('<div class="image"><div class="wrapper one-edge-shadow"><a href="/img_processed/'+data.file+'" title="'+data.datetime+'" ><img class="img-responsive" src="/img_processed/'+data.file+'" /></a><p class="info">Country: '+data.country+' | '+data.datetime+'</p></div></div>');
-					$('#mason').masonry( 'prepended', $elem );
+					var $element = $('<div class="image"><div class="wrapper one-edge-shadow"><a href="/img_processed/'+data.file+'" title="'+data.datetime+'" ><img class="img-responsive" src="/img_processed/'+data.file+'" /></a><p class="info">Country: '+data.country+' | '+data.datetime+'</p></div></div>');
+					$container.prepend($element).masonry('prepended', $element);
 				});
 			});
 		</script>
