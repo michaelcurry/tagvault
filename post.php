@@ -38,7 +38,7 @@
 
 			// Pusher
 			$pusher = new Pusher($config['pusher.KEY'], $config['pusher.SECRET'], $config['pusher.AppID']);
-			$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'from' => $_POST['From'], 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y h:i:s A')) );
+			$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y h:i:s A')) );
 
 		}
 
