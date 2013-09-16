@@ -35,6 +35,11 @@
 			$redis = new Predis\Client();
 			$redis->set($file,'{"file":"'.$file.'","from":"'.$_POST['From'].'","country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}');
 			$redis->lpush(strtolower(trim($_POST['Body'])),$file);
+
+			// Pusher
+			$pusher = new Pusher($config['pusher.KEY'], $config['pusher.SECRET'], $config['pusher.AppID']);
+			$pusher->trigger($config['pusher.channel'], $config['pusher.event'], array('mms' => '{"file":"'.$file.'","from":"'.$_POST['From'].'","country":"'.$_POST['FromCountry'].'","datetime":"'.date('F jS Y h:i:s A').'"}') );
+
 		}
 
 		// return

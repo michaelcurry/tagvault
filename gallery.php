@@ -8,6 +8,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 		<script src="./inc/js/masonry.pkgd.min.js"></script>
+		<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="credits">
@@ -61,23 +62,12 @@
 						itemSelector: '.image'
 					});
 				}, 500)
+				var pusher = new Pusher('<?php echo $config['pusher.KEY'] ?>');
+				var channel = pusher.subscribe('<?php echo $config['pusher.channel'] ?>');
+				channel.bind('<?php echo $config['pusher.event'] ?>', function(data) {
+					alert(data.message);
+				});
 			});
 		</script>
 	</body>
 </html>
-
-<?php /*
-<?php $mms = str_getcsv(file_get_contents('bin/'.strtolower($_REQUEST['tag']).'.csv'),'|');?>
-					<?php foreach (array_reverse($mms) as $message) : ?>
-						<?php if ($message) : ?>
-							<?php $m = json_decode($message); ?>
-							<div class="image">
-								<a href="<?php echo $m->img ?>" title="<?php echo $m->time?>" >
-									<img src="<?php echo $m->img ?>" />
-								</a>
-								<p class="place"><?php echo $m->place?></p>
-								<p class="time"><?php echo $m->time?></p>
-							</div>
-						<?php endif; ?>
-					<?php endforeach; ?>
-*/
