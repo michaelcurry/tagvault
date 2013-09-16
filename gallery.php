@@ -32,9 +32,6 @@
 			<div class="row">
 				<div class="col-xs-12 text-center">
 					<div id="container">
-						<div class="image"><div class="wrapper"><img class="img-responsive" src="http://placehold.it/623x834" />asd</div></div>
-						<div class="image"><div class="wrapper"><img class="img-responsive" src="http://placehold.it/323x274" />asd</div></div>
-						<div class="image"><div class="wrapper"><img class="img-responsive" src="http://placehold.it/723x634" />asd</div></div>
 						<?php $redis = new Predis\Client(); ?>
 						<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
 							<?php $entry = $redis->get($entry); ?>
