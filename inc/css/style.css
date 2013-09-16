@@ -54,14 +54,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .image {
-	width: 200px;
+	width: 23%;
 	height: auto;
 	padding: 10px;
-	background: #fff;
+	background: #f6f6f6;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	margin: 5px;
+	margin: .25%;
 	position: absolute;
 	top: 0;
 	left: 0;
