@@ -30,6 +30,8 @@
 							</span>
 						</div>
 					</form>
+					<?php $redis = new Predis\Client(); ?>
+					<p>Number of Tags: <?php echo $redis->llen('TAGLIST'); ?></p>
 				</div>
 			</div>
 			<img class="sponsor img-responsive" src="./inc/img/twilio.png" />
