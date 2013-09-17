@@ -23,5 +23,6 @@
 				});
 			});
 		</script>
+		<?php echo $config['analytics'] ?>
 	</body>
 </html>
