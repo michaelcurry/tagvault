@@ -37,5 +37,6 @@
 			</div>
 			<img class="sponsor img-responsive" src="./inc/img/twilio.png" />
 		</div>
+		<?php echo $config['analytics'] ?>
 	</body>
 </html>
