@@ -31,7 +31,8 @@
 						</div>
 					</form>
 					<?php $redis = new Predis\Client(); ?>
-					<p>Number of Tags: <?php echo $redis->llen('TAGLIST'); ?></p>
+					<p>Number of Tags: <?php echo count(array_unique($redis->lrange('TAGLIST',0,-1))); ?></p>
+					<p>Number of Images: <?php echo $redis->llen('TAGLIST'); ?></p>
 				</div>
 			</div>
 			<img class="sponsor img-responsive" src="./inc/img/twilio.png" />
