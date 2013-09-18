@@ -47,14 +47,15 @@
 			$pusher = new Pusher($config['pusher.KEY'], $config['pusher.SECRET'], $config['pusher.AppID']);
 			$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y H:i:s e')) );
 
-			// Twilio
-			$client = new Services_Twilio($config['twilio.sid'], $config['twilio.token']);
-			$message = $client->account->sms_messages->create(
-				$config['number'], // From a valid Twilio number
-				$_POST['From'], // Text this number
-				"Image Added to <".strtolower(trim($_POST['Body']))."> TagVault Link: ".$config['url']."?tag=".strtolower(trim($_POST['Body']))
-			);
 		}
+
+		// Twilio
+		$client = new Services_Twilio($config['twilio.sid'], $config['twilio.token']);
+		$message = $client->account->sms_messages->create(
+			$config['number'], // From a valid Twilio number
+			$_POST['From'], // Text this number
+			"Image(s) Added to <".strtolower(trim($_POST['Body']))."> TagVault Link: ".$config['url']."?tag=".strtolower(trim($_POST['Body']))
+		);
 
 		// return
 		return TRUE;
