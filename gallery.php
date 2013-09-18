@@ -36,14 +36,16 @@
 						<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
 							<?php $entry = $redis->get($entry); ?>
 							<?php $entry = json_decode($entry); ?>
-							<div class="image">
-								<div class="wrapper one-edge-shadow">
-									<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
-										<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
-									</a>
-									<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
+							<?php if (file_exists('/img_processed/'.$entry->file)) : ?>
+								<div class="image">
+									<div class="wrapper one-edge-shadow">
+										<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
+											<img class="img-responsive" src="/img_processed/<?php echo $entry->file ?>" />
+										</a>
+										<p class="info">Country: <?php echo $entry->country?> | <?php echo $entry->datetime?></p>
+									</div>
 								</div>
-							</div>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					</div>
 				</div>

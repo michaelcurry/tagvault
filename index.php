@@ -40,6 +40,10 @@
 				include_once('gallery.php');
 			}
 		}
+		elseif ( isset($_GET['del']) && isset($_GET['code']) )
+		{
+			include_once('delete.php');
+		}
 		else // Fallback
 		{
 			include_once('fallback.php');

@@ -2,6 +2,8 @@
 
 $config = array();
 
+$config['code'] = 'tagvault';
+
 $config['number'] = '#####';
 
 $config['url'] = 'http://tagvault.kernelcurry.com';

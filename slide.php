@@ -13,7 +13,9 @@
 			<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
 				<?php $entry = $redis->get($entry); ?>
 				<?php $entry = json_decode($entry); ?>
-				<img src="/img_processed/<?php echo $entry->file ?>" />
+				<?php if (file_exists('/img_processed/'.$entry->file)) : ?>
+					<img src="/img_processed/<?php echo $entry->file ?>" />
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 		<script type="text/javascript" charset="utf-8">
