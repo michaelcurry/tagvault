@@ -10,6 +10,7 @@ Thumbs.db
 # Others
 img_original/*.jpg
 img_processed/*.jpg
+img_deleted/*.jpg
 
 # Composer
 /vendor/
