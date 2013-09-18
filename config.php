@@ -4,6 +4,8 @@ $config = array();
 
 $config['number'] = '#####';
 
+$config['url'] = 'http://tagvault.kernelcurry.com';
+
 $config['chmod'] = 01777;
 
 $config['width'] = 1000;
@@ -17,5 +19,7 @@ $config['pusher.KEY'] = 'xxxxxxxxxxxxxxxxxxxx';
 $config['pusher.SECRET'] = 'xxxxxxxxxxxxxxxxxxxx';
 $config['pusher.channel'] = 'tagvault';
 
+$config['twilio.sid'] = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$config['twilio.token'] = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
 $config['analytics'] = '';

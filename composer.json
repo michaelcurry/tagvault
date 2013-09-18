@@ -10,6 +10,7 @@
     "require": {
         "predis/predis": "0.8.*@dev",
         "gregwar/image": "dev-adapter",
-        "pusher/pusher-php-server": "dev-composer"
+        "pusher/pusher-php-server": "dev-composer",
+        "twilio/sdk": "dev-master"
     }
 }

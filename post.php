@@ -47,6 +47,13 @@
 			$pusher = new Pusher($config['pusher.KEY'], $config['pusher.SECRET'], $config['pusher.AppID']);
 			$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y H:i:s e')) );
 
+			// Twilio
+			$client = new Services_Twilio($config['twilio.sid'], $config['twilio.token']);
+			$message = $client->account->sms_messages->create(
+				$config['number'], // From a valid Twilio number
+				$_POST['From'], // Text this number
+				"Image Added to <".strtolower(trim($_POST['Body']))."> TagVault Link: ".$config['url']
+			);
 		}
 
 		// return
@@ -54,6 +61,17 @@
 	}
 	else
 	{
+		if ( isset($_POST['From']) )
+		{
+			// Twilio
+			$client = new Services_Twilio($config['twilio.sid'], $config['twilio.token']);
+			$message = $client->account->sms_messages->create(
+				$config['number'], // From a valid Twilio number
+				$_POST['From'], // Text this number
+				"MMS error. Please try sending your image again."
+			);
+		}
+
 		// Respond with 400
 		header('HTTP/1.1 400 Bad Request', true, 400);
 
