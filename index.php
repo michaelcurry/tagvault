@@ -42,6 +42,7 @@
 		}
 		elseif ( isset($_GET['del']) && isset($_GET['code']) )
 		{
+			// delete
 			include_once('delete.php');
 		}
 		else // Fallback
