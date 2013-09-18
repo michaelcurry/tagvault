@@ -5,6 +5,13 @@ Michael Ian Curry [@kernelcurry]
 
 This simple image BBS allows users to post by sending images over MMS to a Twilio number.  Once an image is sent, it will be categorized using the message body as a {tag}.  These tagged images can be displayed as a collage or a slide show on a projector for an event.
 
+####Installation:
+- clone repository
+- edit config.php
+- composer install
+- setup Twilio Callback
+- Done!
+
 ####Languages:
 - php
 - js
@@ -12,14 +19,14 @@ This simple image BBS allows users to post by sending images over MMS to a Twili
 - html
 
 ####Technology:
+- [composer]
 - [jQuery]
 - [masonry.js]
-- [lightbox.js]
 - [Twitter Bootstrap]
 
 
 [@kernelcurry]: http://twitter.com/kernelcurry
 [Twitter Bootstrap]: http://twitter.github.com/bootstrap/
 [jQuery]: http://jquery.com
-[lightbox.js]: https://github.com/lokesh/lightbox2
 [masonry.js]: https://github.com/desandro/masonry
+[composer]: http://getcomposer.org/
