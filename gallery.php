@@ -36,7 +36,7 @@
 						<?php foreach(array_unique($redis->lrange(strtolower(trim($_GET['tag'])), 0, -1))  as $entry) : ?>
 							<?php $entry = $redis->get($entry); ?>
 							<?php $entry = json_decode($entry); ?>
-							<?php if (file_exists('/img_processed/'.$entry->file)) : ?>
+							<?php if (file_exists('img_processed/'.$entry->file)) : ?>
 								<div class="image">
 									<div class="wrapper one-edge-shadow">
 										<a href="/img_processed/<?php echo $entry->file ?>" title="<?php echo $entry->datetime ?>" >
